@@ -1,0 +1,9 @@
+customer_id,name,email,phone,city
+1001,Rahul Sharma,rahul@gmail.com,9876543210,Bangalore
+1002,Anita Kumar,anita@gmail.com,9876543211,Chennai
+1003,Ravi Kumar,,9876543212,Hosur
+1004,Suresh Kumar,suresh@gmail.com,,Bangalore
+1005,Priya Singh,priya@gmail.com,9876543214,Chennai
+1005,Priya Singh,priya@gmail.com,9876543214,Chennai
+1006,Arun Kumar,arun@gmail.com,9876543215,
+1007,,karthik@gmail.com,9876543216,Hosur
