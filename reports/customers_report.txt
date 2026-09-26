@@ -1,0 +1,24 @@
+========================================
+        BUSINESS DATA VALIDATION        
+========================================
+
+File: customers.csv
+
+SUMMARY
+----------------------------------------
+Total Records           : 8
+Total Columns           : 5
+Missing Data Records    : 4
+Duplicate Customer IDs  : 1
+
+STATUS
+----------------------------------------
+FAILED
+
+ISSUES
+----------------------------------------
+Missing email → Customer 1003
+Missing phone → Customer 1004
+Missing city  → Customer 1006
+Missing name  → Customer 1007
+Duplicate ID  → Customer 1005

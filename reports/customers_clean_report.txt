@@ -1,0 +1,20 @@
+========================================
+        BUSINESS DATA VALIDATION        
+========================================
+
+File: customers_clean.csv
+
+SUMMARY
+----------------------------------------
+Total Records           : 3
+Total Columns           : 5
+Missing Data Records    : 0
+Duplicate Customer IDs  : 0
+
+STATUS
+----------------------------------------
+PASSED
+
+ISSUES
+----------------------------------------
+None

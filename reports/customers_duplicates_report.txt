@@ -1,0 +1,21 @@
+========================================
+        BUSINESS DATA VALIDATION        
+========================================
+
+File: customers_duplicates.csv
+
+SUMMARY
+----------------------------------------
+Total Records           : 5
+Total Columns           : 5
+Missing Data Records    : 0
+Duplicate Customer IDs  : 1
+
+STATUS
+----------------------------------------
+FAILED
+
+ISSUES
+----------------------------------------
+Duplicate ID → Customer 3002
+Duplicate ID → Customer 3002
