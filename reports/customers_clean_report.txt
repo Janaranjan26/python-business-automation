@@ -2,7 +2,7 @@
         BUSINESS DATA VALIDATION        
 ========================================
 
-File: customers_clean.csv
+File: customers_clean.xlsx
 
 SUMMARY
 ----------------------------------------

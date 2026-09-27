@@ -2,7 +2,7 @@
         BUSINESS DATA VALIDATION        
 ========================================
 
-File: customers_duplicates.csv
+File: customers_duplicates.xlsx
 
 SUMMARY
 ----------------------------------------
@@ -17,5 +17,4 @@ FAILED
 
 ISSUES
 ----------------------------------------
-Duplicate ID → Customer 3002
 Duplicate ID → Customer 3002

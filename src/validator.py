@@ -3,7 +3,14 @@ import pandas as pd
 
 
 def load_data(file_path):
-    return pd.read_csv(file_path)
+    ext = os.path.splitext(file_path)[1].lower()
+
+    if ext == ".csv":
+        return pd.read_csv(file_path)
+    elif ext in (".xlsx", ".xls"):
+        return pd.read_excel(file_path)
+    else:
+        raise ValueError(f"Unsupported file type: {ext}")
 
 
 def find_missing_values(df):
@@ -26,13 +33,15 @@ def generate_validation_summary(df):
     total_records = len(df)
     total_columns = len(df.columns)
 
-    records_with_missing_data = df.isnull().any(axis=1).sum()
+    records_with_missing_data = int(
+        df.isnull().any(axis=1).sum()
+    )
     duplicate_customer_ids = int(
-    df.loc[
-        df["customer_id"].duplicated(keep=False),
-        "customer_id"
-    ].nunique()
-)
+        df.loc[
+            df["customer_id"].duplicated(keep=False),
+            "customer_id"
+        ].nunique()
+    )
 
     return {
         "total_records": total_records,
@@ -45,7 +54,7 @@ def generate_validation_summary(df):
 def generate_validation_report(df, file_name):
     summary = generate_validation_summary(df)
     missing_records = find_missing_data_records(df)
-    duplicate_records = find_duplicate_customer_ids(df)
+    # duplicate_records = find_duplicate_customer_ids(df)
 
     status = "FAILED" if (summary["records_with_missing_data"] > 0
                            or summary["duplicate_customer_ids"] > 0) else "PASSED"
@@ -61,8 +70,15 @@ def generate_validation_report(df, file_name):
     # Build "Duplicate ID -> Customer <id>" lines
     # keep="first" marks only the *extra* occurrences as duplicates,
     # matching the count already used in generate_validation_summary
-    dup_mask = df["customer_id"].duplicated(keep="first")
-    for customer_id in df.loc[dup_mask, "customer_id"]:
+    duplicate_ids = (
+        df.loc[
+            df["customer_id"].duplicated(keep=False),
+            "customer_id"
+        ]
+        .drop_duplicates()
+    )
+
+    for customer_id in duplicate_ids:
         issue_lines.append(("Duplicate ID", customer_id))
 
     # Align the "Missing x -> Customer y" labels into columns
@@ -100,7 +116,7 @@ def generate_validation_report(df, file_name):
 
 
 if __name__ == "__main__":
-    file_path = "data/customers_duplicates.csv"
+    file_path = "data/customers_duplicates.xlsx"
     file_name = os.path.basename(file_path)
 
     df = load_data(file_path)
